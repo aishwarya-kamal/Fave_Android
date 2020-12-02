@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/movieFragment">
+
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.test.faveandroid.movie.MovieFragment"
+        android:label="Movies"
+        tools:layout="@layout/movie_fragment">
+        <action
+            android:id="@+id/action_movieFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.test.faveandroid.movieDetails.MovieDetailsFragment"
+        android:label="Movie Details"
+        tools:layout="@layout/movie_details_fragment">
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <argument
+            android:name="movie"
+            app:argType="com.test.faveandroid.model.MovieResponse$Result" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_bookMovieFragment"
+            app:destination="@id/bookMovieFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookMovieFragment"
+        android:name="com.test.faveandroid.bookMovie.BookMovieFragment"
+        android:label="Book Movie"
+        tools:layout="@layout/book_movie_fragment">
+        <action
+            android:id="@+id/action_bookMovieFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+
+</navigation>
